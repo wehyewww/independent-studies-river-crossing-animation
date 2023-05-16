@@ -1,3 +1,6 @@
+// this file is solely for demo on friday (to show the scuffed flying Goat)
+// note: rmb to change script in index.html!
+
 window.addEventListener('DOMContentLoaded', () => {
 
     const goat = document.querySelector('#goat');
@@ -9,12 +12,21 @@ window.addEventListener('DOMContentLoaded', () => {
     // https://developer.mozilla.org/en-US/docs/Web/API/DOMRect
     // Gabriel Paul Tan
 
-    const startPos = getPosition(goat);
-    const endPos = getPosition(animalEnd);
+    // returns an object which holds info on position of element
+    const startPos = goat.getBoundingClientRect();
+    const endPos = animalEnd.getBoundingClientRect();
+
+    const centerStartX = startPos.left + startPos.width / 2;
+    const centerStartY = startPos.top + startPos.height / 2;
+    const centerEndX = endPos.left + endPos.width / 2;
+    const centerEndY = endPos.top + endPos.height / 2;
 
     // element takes in distance to travel from current position, cannot just give end position
-    const translateX = endPos.x - startPos.x;
-    const translateY = endPos.y - startPos.y;
+    const translateX = centerEndX - centerStartX;
+    const translateY = centerEndY - centerStartY;
+
+    console.log(centerStartX);
+    console.log(centerStartY);
 
     const moveAnimation = [
         { transform: `translate(${translateX}px, ${translateY}px)` }
@@ -29,21 +41,4 @@ window.addEventListener('DOMContentLoaded', () => {
         goat.animate(moveAnimation, moveTiming);
     }
 
-    function getPosition(element) {
-        var pos = element.getBoundingClientRect();
-
-        var centerX = pos.left + pos.width / 2;
-        var centerY = pos.top + pos.height / 2;
-
-        return { x: centerX, y: centerY };
-    }
-
 });
-
-// TODO:
-// 1. Create function to calculate center coordinates (will need to be re-used many times)
-// 2. Make Goat move from original pos -> animal start -> raft start -> raft end -> animal end
-// 3. Group animations? Make raft move with Goat
-// Problem:
-// With this method, diff screen sizes can cause problems
-// This is because this method gets exact coordinates at point of calculation
