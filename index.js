@@ -1,7 +1,10 @@
 window.addEventListener('DOMContentLoaded', () => {
 
     const goat = document.querySelector('#goat');
+    const animalStart = document.querySelector('#animal-start');
     const animalEnd = document.querySelector("#animal-end");
+    const raftStart = document.querySelector('#raft-start');
+    const raftEnd = document.querySelector('#raft-end');
     const btnStart = document.querySelector('#btn-start');
 
     //Resources:
@@ -9,24 +12,28 @@ window.addEventListener('DOMContentLoaded', () => {
     // https://developer.mozilla.org/en-US/docs/Web/API/DOMRect
     // Gabriel Paul Tan
 
-    const startPos = getPosition(goat);
-    const endPos = getPosition(animalEnd);
+    // From start position to animal start
+    const startPosA = getPosition(goat);
+    const endPosA = getPosition(animalStart);
 
     // element takes in distance to travel from current position, cannot just give end position
-    const translateX = endPos.x - startPos.x;
-    const translateY = endPos.y - startPos.y;
+    const distA = calcDistance(startPosA, endPosA);
 
     const moveAnimation = [
-        { transform: `translate(${translateX}px, ${translateY}px)` }
+        { transform: `translate(${distA.x}px, ${distA.y}px)` },
     ];
 
     const moveTiming = {
-        duration: 2000,
+        duration: 3000,
         fill: 'forwards' // keeps element at end position
     };
 
-    btnStart.onclick = function (e) {
+    btnStart.onclick = function () {
         goat.animate(moveAnimation, moveTiming);
+    }
+
+    function move() {
+
     }
 
     function getPosition(element) {
@@ -38,12 +45,21 @@ window.addEventListener('DOMContentLoaded', () => {
         return { x: centerX, y: centerY };
     }
 
+    function calcDistance(start, end) {
+        var distX = end.x - start.x;
+        var distY = end.y - start.y;
+
+        return { x: distX, y: distY };
+    }
+
 });
 
-// TODO:
-// 1. Create function to calculate center coordinates (will need to be re-used many times)
-// 2. Make Goat move from original pos -> animal start -> raft start -> raft end -> animal end
-// 3. Group animations? Make raft move with Goat
 // Problem:
 // With this method, diff screen sizes can cause problems
 // This is because this method gets exact coordinates at point of calculation
+
+// function to move actor to target actor
+// likely return a promise cus async, think abt why
+
+// re-organise html elements to layers
+// background / actor
