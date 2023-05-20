@@ -7,6 +7,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const raftEnd = document.querySelector('#raft-end');
     const btnStart = document.querySelector('#btn-start');
 
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+
     //Resources:
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
     // https://developer.mozilla.org/en-US/docs/Web/API/DOMRect
@@ -14,17 +17,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // From start position to animal start
     const startPosA = getPosition(goat);
-    const endPosA = getPosition(animalStart);
+    const endPosA = getPosition(animalEnd);
 
     // element takes in distance to travel from current position, cannot just give end position
     const distA = calcDistance(startPosA, endPosA);
+    console.log(distA)
 
     const moveAnimation = [
-        { transform: `translate(${distA.x}px, ${distA.y}px)` },
+        { transform: `translate(${distA.x}px, ${distA.y}px)` }
     ];
 
     const moveTiming = {
-        duration: 3000,
+        duration: 2000,
         fill: 'forwards' // keeps element at end position
     };
 
@@ -39,8 +43,8 @@ window.addEventListener('DOMContentLoaded', () => {
     function getPosition(element) {
         var pos = element.getBoundingClientRect();
 
-        var centerX = pos.left + pos.width / 2;
-        var centerY = pos.top + pos.height / 2;
+        var centerX = (pos.left + pos.width / 2);
+        var centerY = (pos.top + pos.height / 2);
 
         return { x: centerX, y: centerY };
     }
