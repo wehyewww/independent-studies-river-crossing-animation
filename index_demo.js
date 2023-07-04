@@ -25,9 +25,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const translateX = centerEndX - centerStartX;
     const translateY = centerEndY - centerStartY;
 
-    console.log(centerStartX);
-    console.log(centerStartY);
-
     const moveAnimation = [
         { transform: `translate(${translateX}px, ${translateY}px)` }
     ];

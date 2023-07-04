@@ -10,34 +10,50 @@ window.addEventListener('DOMContentLoaded', () => {
     const vw = window.innerWidth;
     const vh = window.innerHeight;
 
+    let totalX = 0;
+    let totalY = 0;
+
     //Resources:
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
     // https://developer.mozilla.org/en-US/docs/Web/API/DOMRect
     // Gabriel Paul Tan
 
-    // From start position to animal start
-    const startPosA = getPosition(goat);
-    const endPosA = getPosition(animalEnd);
-
-    // element takes in distance to travel from current position, cannot just give end position
-    const distA = calcDistance(startPosA, endPosA);
-    console.log(distA)
-
-    const moveAnimation = [
-        { transform: `translate(${distA.x}px, ${distA.y}px)` }
-    ];
-
-    const moveTiming = {
-        duration: 2000,
-        fill: 'forwards' // keeps element at end position
-    };
-
     btnStart.onclick = function () {
-        goat.animate(moveAnimation, moveTiming);
+        move(goat, animalStart) // same issue with multiple animations
+            .then(() => move(goat, raftStart))
+            .then(() => move(goat, raftEnd))
+            .then(() => move(goat, animalEnd))
+            .then(() => clearDistance());
     }
 
-    function move() {
+    // translate happens from the original position
+    function move(startElement, endElement) {
 
+        // get start and end coordinates
+        const startPos = getPosition(startElement);
+        const endPos = getPosition(endElement);
+
+        console.log("startPos: ", startPos);
+        console.log("endPos: ", endPos);
+
+        // get distance to travel
+        const dist = calcDistance(startPos, endPos);
+
+        const moveAnimation = [
+            { transform: `translate(${dist.x + totalX}px, ${dist.y + totalY}px)` }
+        ];
+
+        trackDistance(dist.x, dist.y);
+        console.log(`{ transform: translate(${dist.x}px, ${dist.y}px) }`)
+
+        const moveTiming = {
+            duration: 2000,
+            fill: 'forwards' // keeps element at end position
+        };
+
+        const animation = startElement.animate(moveAnimation, moveTiming);
+
+        return animation.finished;
     }
 
     function getPosition(element) {
@@ -56,14 +72,18 @@ window.addEventListener('DOMContentLoaded', () => {
         return { x: distX, y: distY };
     }
 
+    function trackDistance(x, y) {
+        totalX += x;
+        totalY += y;
+    }
+
+    function clearDistance() {
+        totalX = 0;
+        totalY = 0;
+    }
+
 });
 
 // Problem:
 // With this method, diff screen sizes can cause problems
 // This is because this method gets exact coordinates at point of calculation
-
-// function to move actor to target actor
-// likely return a promise cus async, think abt why
-
-// re-organise html elements to layers
-// background / actor
