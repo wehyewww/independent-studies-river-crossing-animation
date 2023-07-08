@@ -15,20 +15,16 @@ window.addEventListener('DOMContentLoaded', () => {
     const vw = window.innerWidth;
     const vh = window.innerHeight;
 
-    let totalX = 0;
-    let totalY = 0;
-
     //Resources:
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
     // https://developer.mozilla.org/en-US/docs/Web/API/DOMRect
     // Gabriel Paul Tan
 
     btnStart.onclick = function () {
-        move(goat, animalStart) // same issue with multiple animations
+        move(goat, animalStart)
             .then(() => move(goat, raftStartTop))
             .then(() => move(goat, raftEndTop))
-            .then(() => move(goat, animalEnd))
-            .then(() => clearDistance());
+            .then(() => move(goat, animalEnd));
     }
 
     // translate happens from the original position
@@ -44,12 +40,14 @@ window.addEventListener('DOMContentLoaded', () => {
         // get distance to travel
         const dist = calcDistance(startPos, endPos);
 
+        // get total distance travelled so far
+        const distCurrent = getTranslation(startElement);
+
         const moveAnimation = [
-            { transform: `translate(${dist.x + totalX}px, ${dist.y + totalY}px)` }
+            { transform: `translate(${dist.x + distCurrent.x}px, ${dist.y + distCurrent.y}px)` }
         ];
 
-        trackDistance(dist.x, dist.y);
-        console.log(`{ transform: translate(${dist.x}px, ${dist.y}px) }`)
+        console.log(`{ transform: translate(${dist.x + distCurrent.x}px, ${dist.y + distCurrent.y}px) }`)
 
         const moveTiming = {
             duration: 2000,
@@ -77,14 +75,20 @@ window.addEventListener('DOMContentLoaded', () => {
         return { x: distX, y: distY };
     }
 
-    function trackDistance(x, y) {
-        totalX += x;
-        totalY += y;
-    }
+    function getTranslation(element) {
+        const computedStyle = window.getComputedStyle(element);
+        const transformValue = computedStyle.transform;
 
-    function clearDistance() {
-        totalX = 0;
-        totalY = 0;
-    }
+        // regex to capture X and Y translation in group
+        const getValue = transformValue.match(/matrix\(1, 0, 0, 1, (-?\d*\.?\d+), (-?\d*\.?\d+)/);
 
+        if (!getValue) {
+            return { x: 0, y: 0 };
+        }
+
+        const translateX = parseFloat(getValue[1]);
+        const translateY = parseFloat(getValue[2]);
+
+        return { x: translateX, y: translateY };
+    }
 });
