@@ -7,3 +7,8 @@ River Crossing Problem Simulation using Web Animations API
 2. Create function to make move animation - Done!
 3. Complete one full animation to cross river - Done!
 4. Group animation (Raft and Animals) 
+
+Considerations:
+- Will need to to have animal top and animal bottom positions on Raft (Done!)
+- How to track distance travelled for individual elements?
+- Can pass in Options array as parameter in move function if customisation is needed?

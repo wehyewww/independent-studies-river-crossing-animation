@@ -39,26 +39,26 @@ body {
 }
 
 #raft-start {
-    height: 30vh;
+    height: 35vh;
     width: 25vh;
     background-color: aliceblue;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 35%;
+    top: 32.5%;
     left: 27%;
 }
 
 #raft-end {
-    height: 30vh;
+    height: 35vh;
     width: 25vh;
     background-color: aliceblue;
     display: flex;
     justify-content: center;
     align-items: center;
     position:  absolute;
-    top: 35%;
+    top: 32.5%;
     left: 60.5%;
 }
 
@@ -74,6 +74,58 @@ body {
     left: 77%;
 }
 
+#raft-start-top {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    z-index: 3;
+}
+
+#raft-start-bottom {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 60%;
+    left: 30%;
+    z-index: 3;
+}
+
+#raft-end-top {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    z-index: 3;
+}
+
+#raft-end-bottom {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 60%;
+    left: 30%;
+    z-index: 3;
+}
+
 #goat {
     height: 8vh;
     width: 8vh;
@@ -85,14 +137,15 @@ body {
     position: absolute;
     top: 50%;
     left: 10%;
-    z-index: 2; /* make goat stack on top of other elements*/
+    z-index: 3; /* make goat stack on top of other elements*/
 }
 
 #raft {
-    height: 28vh;
+    height: 33vh;
     width: 23vh;
     background-color: brown;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }

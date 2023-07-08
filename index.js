@@ -1,10 +1,15 @@
 window.addEventListener('DOMContentLoaded', () => {
 
     const goat = document.querySelector('#goat');
+    const raft = document.querySelector('#raft');
     const animalStart = document.querySelector('#animal-start');
     const animalEnd = document.querySelector("#animal-end");
     const raftStart = document.querySelector('#raft-start');
     const raftEnd = document.querySelector('#raft-end');
+    const raftStartTop = document.querySelector('#raft-start-top');
+    const raftStartBottom = document.querySelector('#raft-start-bottom');
+    const raftEndTop = document.querySelector('#raft-end-top');
+    const raftEndBottom = document.querySelector('#raft-end-bottom');
     const btnStart = document.querySelector('#btn-start');
 
     const vw = window.innerWidth;
@@ -20,8 +25,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     btnStart.onclick = function () {
         move(goat, animalStart) // same issue with multiple animations
-            .then(() => move(goat, raftStart))
-            .then(() => move(goat, raftEnd))
+            .then(() => move(goat, raftStartTop))
+            .then(() => move(goat, raftEndTop))
             .then(() => move(goat, animalEnd))
             .then(() => clearDistance());
     }
@@ -83,7 +88,3 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
 });
-
-// Problem:
-// With this method, diff screen sizes can cause problems
-// This is because this method gets exact coordinates at point of calculation
