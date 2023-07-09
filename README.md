@@ -11,4 +11,5 @@ River Crossing Problem Simulation using Web Animations API
 Considerations:
 - Will need to to have animal top and animal bottom positions on Raft (Done!)
 - How to track distance travelled for individual elements? (Done!)
+- Will need pre-determined spots on left and right river bank for animals?
 - Can pass in Options array as parameter in move function if customisation is needed?

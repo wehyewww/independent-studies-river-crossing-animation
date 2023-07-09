@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
 
     const goat = document.querySelector('#goat');
+    const lion = document.querySelector('#lion');
     const raft = document.querySelector('#raft');
     const animalStart = document.querySelector('#animal-start');
     const animalEnd = document.querySelector("#animal-end");
@@ -21,14 +22,23 @@ window.addEventListener('DOMContentLoaded', () => {
     // Gabriel Paul Tan
 
     btnStart.onclick = function () {
-        move(goat, animalStart)
-            .then(() => move(goat, raftStartTop))
-            .then(() => move(goat, raftEndTop))
-            .then(() => move(goat, animalEnd));
+        // move(goat, animalStart)
+        //     .then(() => move(goat, raftStartTop))
+        //     .then(() => move(goat, raftEndTop))
+        //     .then(() => move(goat, animalEnd));
+
+        move(goat, animalStart, 1000)
+            .then(() => move(goat, raftStartTop, 1000))
+            .then(() => move(lion, animalStart, 1000))
+            .then(() => move(lion, raftStartBottom, 1000))
+            .then(() => {
+                return Promise.all([move(goat, raftEndTop), move(lion, raftEndBottom), move(raft, raftEnd)])
+            })
+            .then(() => move(goat, animalEnd, 1000));
     }
 
     // translate happens from the original position
-    function move(startElement, endElement) {
+    function move(startElement, endElement, time = 2000) {
 
         // get start and end coordinates
         const startPos = getPosition(startElement);
@@ -50,7 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log(`{ transform: translate(${dist.x + distCurrent.x}px, ${dist.y + distCurrent.y}px) }`)
 
         const moveTiming = {
-            duration: 2000,
+            duration: time,
             fill: 'forwards' // keeps element at end position
         };
 

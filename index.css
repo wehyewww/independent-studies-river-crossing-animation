@@ -84,7 +84,7 @@ body {
     position: absolute;
     top: 15%;
     left: 30%;
-    z-index: 3;
+    z-index: 2;
 }
 
 #raft-start-bottom {
@@ -97,7 +97,7 @@ body {
     position: absolute;
     top: 60%;
     left: 30%;
-    z-index: 3;
+    z-index: 2;
 }
 
 #raft-end-top {
@@ -110,7 +110,7 @@ body {
     position: absolute;
     top: 15%;
     left: 30%;
-    z-index: 3;
+    z-index: 2;
 }
 
 #raft-end-bottom {
@@ -123,7 +123,7 @@ body {
     position: absolute;
     top: 60%;
     left: 30%;
-    z-index: 3;
+    z-index: 2;
 }
 
 #goat {
@@ -136,6 +136,20 @@ body {
     align-items: center;
     position: absolute;
     top: 50%;
+    left: 10%;
+    z-index: 3; /* make goat stack on top of other elements*/
+}
+
+#lion {
+    height: 8vh;
+    width: 8vh;
+    border-radius: 50%;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30%;
     left: 10%;
     z-index: 3; /* make goat stack on top of other elements*/
 }
