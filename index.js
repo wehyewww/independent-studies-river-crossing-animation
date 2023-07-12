@@ -1,7 +1,23 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-    const goat = document.querySelector('#goat');
-    const lion = document.querySelector('#lion');
+    const goat1 = document.querySelector('#goat1');
+    const goat2 = document.querySelector('#goat2');
+    const goat3 = document.querySelector('#goat3');
+    const lion1 = document.querySelector('#lion1');
+    const lion2 = document.querySelector('#lion2');
+    const lion3 = document.querySelector('#lion3');
+    const goat1Start = document.querySelector('#goat1-start');
+    const goat2Start = document.querySelector('#goat2-start');
+    const goat3Start = document.querySelector('#goat3-start');
+    const lion1Start = document.querySelector('#lion1-start');
+    const lion2Start = document.querySelector('#lion2-start');
+    const lion3Start = document.querySelector('#lion3-start');
+    const goat1End = document.querySelector('#goat1-end');
+    const goat2End = document.querySelector('#goat2-end');
+    const goat3End = document.querySelector('#goat1-end');
+    const lion1End = document.querySelector('#lion1-end');
+    const lion2End = document.querySelector('#lion2-end');
+    const lion3End = document.querySelector('#lion3-end');
     const raft = document.querySelector('#raft');
     const animalStart = document.querySelector('#animal-start');
     const animalEnd = document.querySelector("#animal-end");
@@ -27,14 +43,17 @@ window.addEventListener('DOMContentLoaded', () => {
         //     .then(() => move(goat, raftEndTop))
         //     .then(() => move(goat, animalEnd));
 
-        move(goat, animalStart, 1000)
-            .then(() => move(goat, raftStartTop, 1000))
-            .then(() => move(lion, animalStart, 1000))
-            .then(() => move(lion, raftStartBottom, 1000))
+        move(goat1, animalStart, 1000)
+            .then(() => move(goat1, raftStartTop, 1000))
+            .then(() => move(lion1, animalStart, 1000))
+            .then(() => move(lion1, raftStartBottom, 1000))
             .then(() => {
-                return Promise.all([move(goat, raftEndTop), move(lion, raftEndBottom), move(raft, raftEnd)])
+                return Promise.all([move(goat1, raftEndTop), move(lion1, raftEndBottom), move(raft, raftEnd)])
             })
-            .then(() => move(goat, animalEnd, 1000));
+            .then(() => move(goat1, animalEnd, 1000))
+            .then(() => move(goat1, goat1End, 1000))
+            .then(() => move(lion1, animalEnd, 1000))
+            .then(() => move(lion1, lion1End, 1000));
     }
 
     // translate happens from the original position

@@ -29,7 +29,7 @@ body {
 #animal-start {
     height: 10vh;
     width: 10vh;
-    background-color: bisque;
+    background-color: coral;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,7 +65,7 @@ body {
 #animal-end {
     height: 10vh;
     width: 10vh;
-    background-color: bisque;
+    background-color: coral;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,7 +77,7 @@ body {
 #raft-start-top {
     height: 10vh;
     width: 10vh;
-    background-color: bisque;
+    background-color: coral;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,7 +90,7 @@ body {
 #raft-start-bottom {
     height: 10vh;
     width: 10vh;
-    background-color: bisque;
+    background-color: coral;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,7 +103,7 @@ body {
 #raft-end-top {
     height: 10vh;
     width: 10vh;
-    background-color: bisque;
+    background-color: coral;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,7 +116,7 @@ body {
 #raft-end-bottom {
     height: 10vh;
     width: 10vh;
-    background-color: bisque;
+    background-color: coral;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,7 +126,151 @@ body {
     z-index: 2;
 }
 
-#goat {
+#goat1-start {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20%;
+    left: 8%;
+}
+
+#goat2-start {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 33%;
+    left: 15%;
+}
+
+#goat3-start {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 45%;
+    left: 5%;
+}
+
+#lion1-start {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 60%;
+    left: 8%;
+}
+
+#lion2-start {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 75%;
+    left: 10%;
+}
+
+#lion3-start {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 60%;
+    left: 18%;
+}
+
+#goat1-end {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20%;
+    left: 80%;
+}
+
+#goat2-end {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    left: 90%;
+}
+
+#goat3-end {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 47%;
+    left: 88%;
+}
+
+#lion1-end {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 60%;
+    left: 78%;
+}
+
+#lion2-end {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 65%;
+    left: 87%;
+}
+
+#lion3-end {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 80%;
+    left: 80%;
+}
+
+#goat1 {
     height: 8vh;
     width: 8vh;
     border-radius: 50%;
@@ -135,12 +279,34 @@ body {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 50%;
-    left: 10%;
     z-index: 3; /* make goat stack on top of other elements*/
 }
 
-#lion {
+#goat2 {
+    height: 8vh;
+    width: 8vh;
+    border-radius: 50%;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 3; /* make goat stack on top of other elements*/
+}
+
+#goat3 {
+    height: 8vh;
+    width: 8vh;
+    border-radius: 50%;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 3; /* make goat stack on top of other elements*/
+}
+
+#lion1 {
     height: 8vh;
     width: 8vh;
     border-radius: 50%;
@@ -149,9 +315,31 @@ body {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 30%;
-    left: 10%;
-    z-index: 3; /* make goat stack on top of other elements*/
+    z-index: 3; /* make lion stack on top of other elements*/
+}
+
+#lion2 {
+    height: 8vh;
+    width: 8vh;
+    border-radius: 50%;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 3; /* make lion stack on top of other elements*/
+}
+
+#lion3 {
+    height: 8vh;
+    width: 8vh;
+    border-radius: 50%;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 3; /* make lion stack on top of other elements*/
 }
 
 #raft {
