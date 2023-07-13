@@ -35,11 +35,23 @@ window.addEventListener('DOMContentLoaded', () => {
         // get distance to travel
         const dist = calcDistance(startPos, endPos);
 
+        // ----- bugged version -----
         const moveAnimation = [
             { transform: `translate(${dist.x}px, ${dist.y}px)` }
         ];
 
         console.log(`{ transform: translate(${dist.x}px, ${dist.y}px) }`)
+        // ----- bugged version -----
+
+        // ----- fixed version ------
+        // const distCurrent = getTranslation(startElement);
+
+        // const moveAnimation = [
+        //     { transform: `translate(${dist.x + distCurrent.x}px, ${dist.y + distCurrent.y}px)` }
+        // ];
+
+        // console.log(`{ transform: translate(${dist.x + distCurrent.x}px, ${dist.y + distCurrent.y}px) }`)
+        // ----- fixed version ------
 
         const moveTiming = {
             duration: 2000,
@@ -65,5 +77,22 @@ window.addEventListener('DOMContentLoaded', () => {
         var distY = end.y - start.y;
 
         return { x: distX, y: distY };
+    }
+
+    function getTranslation(element) {
+        const computedStyle = window.getComputedStyle(element);
+        const transformValue = computedStyle.transform;
+
+        // regex to capture X and Y translation in group
+        const getValue = transformValue.match(/matrix\(1, 0, 0, 1, (-?\d*\.?\d+), (-?\d*\.?\d+)/);
+
+        if (!getValue) {
+            return { x: 0, y: 0 };
+        }
+
+        const translateX = parseFloat(getValue[1]);
+        const translateY = parseFloat(getValue[2]);
+
+        return { x: translateX, y: translateY };
     }
 });
