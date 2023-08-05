@@ -36,21 +36,21 @@ window.addEventListener('DOMContentLoaded', () => {
         const dist = calcDistance(startPos, endPos);
 
         // ----- bugged version -----
-        const moveAnimation = [
-            { transform: `translate(${dist.x}px, ${dist.y}px)` }
-        ];
+        // const moveAnimation = [
+        //     { transform: `translate(${dist.x}px, ${dist.y}px)` }
+        // ];
 
-        console.log(`{ transform: translate(${dist.x}px, ${dist.y}px) }`)
+        // console.log(`{ transform: translate(${dist.x}px, ${dist.y}px) }`)
         // ----- bugged version -----
 
         // ----- fixed version ------
-        // const distCurrent = getTranslation(startElement);
+        const distCurrent = getTranslation(startElement);
 
-        // const moveAnimation = [
-        //     { transform: `translate(${dist.x + distCurrent.x}px, ${dist.y + distCurrent.y}px)` }
-        // ];
+        const moveAnimation = [
+            { transform: `translate(${dist.x + distCurrent.x}px, ${dist.y + distCurrent.y}px)` }
+        ];
 
-        // console.log(`{ transform: translate(${dist.x + distCurrent.x}px, ${dist.y + distCurrent.y}px) }`)
+        console.log(`{ transform: translate(${dist.x + distCurrent.x}px, ${dist.y + distCurrent.y}px) }`)
         // ----- fixed version ------
 
         const moveTiming = {
