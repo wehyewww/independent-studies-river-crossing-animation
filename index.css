@@ -14,6 +14,34 @@ body {
 #section-left {
     width: 25%;
     background-color: #0B7229;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#left-grid {
+    display: grid;
+    /* background-color: black; */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+/* #left-grid > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+} */
+
+/* animal start position containers */
+#left-grid > div {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #section-middle {
@@ -24,6 +52,26 @@ body {
 #section-right {
     width: 25%;
     background-color: #0B7229;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#right-grid {
+    display: grid;
+    /* background-color: black; */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+#right-grid > div {
+    height: 10vh;
+    width: 10vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #animal-start {
@@ -126,220 +174,20 @@ body {
     z-index: 2;
 }
 
-#goat1-start {
-    height: 10vh;
-    width: 10vh;
-    background-color: bisque;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 20%;
-    left: 8%;
+.goat {
+    font-size:40px;
+    color:rgb(0,0,0);
+    font-style:normal;
+    font-weight:normal;
+    z-index: 3;
 }
 
-#goat2-start {
-    height: 10vh;
-    width: 10vh;
-    background-color: bisque;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 33%;
-    left: 15%;
-}
-
-#goat3-start {
-    height: 10vh;
-    width: 10vh;
-    background-color: bisque;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 45%;
-    left: 5%;
-}
-
-#lion1-start {
-    height: 10vh;
-    width: 10vh;
-    background-color: bisque;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 60%;
-    left: 8%;
-}
-
-#lion2-start {
-    height: 10vh;
-    width: 10vh;
-    background-color: bisque;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 75%;
-    left: 10%;
-}
-
-#lion3-start {
-    height: 10vh;
-    width: 10vh;
-    background-color: bisque;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 60%;
-    left: 18%;
-}
-
-#goat1-end {
-    height: 10vh;
-    width: 10vh;
-    background-color: bisque;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 20%;
-    left: 80%;
-}
-
-#goat2-end {
-    height: 10vh;
-    width: 10vh;
-    background-color: bisque;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 30%;
-    left: 90%;
-}
-
-#goat3-end {
-    height: 10vh;
-    width: 10vh;
-    background-color: bisque;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 47%;
-    left: 88%;
-}
-
-#lion1-end {
-    height: 10vh;
-    width: 10vh;
-    background-color: bisque;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 60%;
-    left: 78%;
-}
-
-#lion2-end {
-    height: 10vh;
-    width: 10vh;
-    background-color: bisque;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 65%;
-    left: 87%;
-}
-
-#lion3-end {
-    height: 10vh;
-    width: 10vh;
-    background-color: bisque;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 80%;
-    left: 80%;
-}
-
-#goat1 {
-    height: 8vh;
-    width: 8vh;
-    border-radius: 50%;
-    background-color: #f2f2f2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 3; /* make goat stack on top of other elements*/
-}
-
-#goat2 {
-    height: 8vh;
-    width: 8vh;
-    border-radius: 50%;
-    background-color: #f2f2f2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 3; /* make goat stack on top of other elements*/
-}
-
-#goat3 {
-    height: 8vh;
-    width: 8vh;
-    border-radius: 50%;
-    background-color: #f2f2f2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 3; /* make goat stack on top of other elements*/
-}
-
-#lion1 {
-    height: 8vh;
-    width: 8vh;
-    border-radius: 50%;
-    background-color: yellow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 3; /* make lion stack on top of other elements*/
-}
-
-#lion2 {
-    height: 8vh;
-    width: 8vh;
-    border-radius: 50%;
-    background-color: yellow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 3; /* make lion stack on top of other elements*/
-}
-
-#lion3 {
-    height: 8vh;
-    width: 8vh;
-    border-radius: 50%;
-    background-color: yellow;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 3; /* make lion stack on top of other elements*/
+.lion { 
+    font-size:40px;
+    color:rgb(0,0,0);
+    font-style:normal;
+    font-weight:normal;
+    z-index: 3;
 }
 
 #raft {

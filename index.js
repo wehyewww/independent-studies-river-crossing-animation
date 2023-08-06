@@ -1,23 +1,9 @@
 window.addEventListener('DOMContentLoaded', () => {
 
     const goat1 = document.querySelector('#goat1');
-    const goat2 = document.querySelector('#goat2');
-    const goat3 = document.querySelector('#goat3');
     const lion1 = document.querySelector('#lion1');
-    const lion2 = document.querySelector('#lion2');
-    const lion3 = document.querySelector('#lion3');
-    const goat1Start = document.querySelector('#goat1-start');
-    const goat2Start = document.querySelector('#goat2-start');
-    const goat3Start = document.querySelector('#goat3-start');
-    const lion1Start = document.querySelector('#lion1-start');
-    const lion2Start = document.querySelector('#lion2-start');
-    const lion3Start = document.querySelector('#lion3-start');
     const goat1End = document.querySelector('#goat1-end');
-    const goat2End = document.querySelector('#goat2-end');
-    const goat3End = document.querySelector('#goat1-end');
     const lion1End = document.querySelector('#lion1-end');
-    const lion2End = document.querySelector('#lion2-end');
-    const lion3End = document.querySelector('#lion3-end');
     const raft = document.querySelector('#raft');
     const animalStart = document.querySelector('#animal-start');
     const animalEnd = document.querySelector("#animal-end");
@@ -29,15 +15,13 @@ window.addEventListener('DOMContentLoaded', () => {
     const raftEndBottom = document.querySelector('#raft-end-bottom');
     const btnStart = document.querySelector('#btn-start');
 
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-
     //Resources:
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
     // https://developer.mozilla.org/en-US/docs/Web/API/DOMRect
     // Gabriel Paul Tan
 
     btnStart.onclick = function () {
+        generateAnimals();
         // move(goat, animalStart)
         //     .then(() => move(goat, raftStartTop))
         //     .then(() => move(goat, raftEndTop))
@@ -63,8 +47,8 @@ window.addEventListener('DOMContentLoaded', () => {
         const startPos = getPosition(startElement);
         const endPos = getPosition(endElement);
 
-        console.log("startPos: ", startPos);
-        console.log("endPos: ", endPos);
+        // console.log("startPos: ", startPos);
+        // console.log("endPos: ", endPos);
 
         // get distance to travel
         const dist = calcDistance(startPos, endPos);
@@ -76,7 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
             { transform: `translate(${dist.x + distCurrent.x}px, ${dist.y + distCurrent.y}px)` }
         ];
 
-        console.log(`{ transform: translate(${dist.x + distCurrent.x}px, ${dist.y + distCurrent.y}px) }`)
+        // console.log(`{ transform: translate(${dist.x + distCurrent.x}px, ${dist.y + distCurrent.y}px) }`)
 
         const moveTiming = {
             duration: time,
@@ -119,5 +103,10 @@ window.addEventListener('DOMContentLoaded', () => {
         const translateY = parseFloat(getValue[2]);
 
         return { x: translateX, y: translateY };
+    }
+
+    function generateAnimals() {
+        const numGoat = Math.floor(Math.random() * (8 - 1 + 1) + 1);
+        const numLion = Math.floor(Math.random() * (numGoat - 1 + 1) + 1); // lions must never start higher than goats
     }
 });
