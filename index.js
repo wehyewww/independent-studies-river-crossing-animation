@@ -1,9 +1,9 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-    const goat1 = document.querySelector('#goat1');
-    const lion1 = document.querySelector('#lion1');
-    const goat1End = document.querySelector('#goat1-end');
-    const lion1End = document.querySelector('#lion1-end');
+    // const goat1 = document.querySelector('#goat1');
+    // const lion1 = document.querySelector('#lion1');
+    // const goat1End = document.querySelector('#goat1-end');
+    // const lion1End = document.querySelector('#lion1-end');
     const raft = document.querySelector('#raft');
     const animalStart = document.querySelector('#animal-start');
     const animalEnd = document.querySelector("#animal-end");
@@ -14,6 +14,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const raftEndTop = document.querySelector('#raft-end-top');
     const raftEndBottom = document.querySelector('#raft-end-bottom');
     const btnStart = document.querySelector('#btn-start');
+    const startGrid = document.querySelector('#left-grid');
+    const endGrid = document.querySelector('#right-grid');
 
     //Resources:
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
@@ -26,6 +28,11 @@ window.addEventListener('DOMContentLoaded', () => {
         //     .then(() => move(goat, raftStartTop))
         //     .then(() => move(goat, raftEndTop))
         //     .then(() => move(goat, animalEnd));
+
+        const goat1 = document.querySelector('#G1');
+        const lion1 = document.querySelector('#L1');
+        const goat1End = document.querySelector('#G1-end');
+        const lion1End = document.querySelector('#L1-end');
 
         move(goat1, animalStart, 1000)
             .then(() => move(goat1, raftStartTop, 1000))
@@ -106,7 +113,48 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     function generateAnimals() {
+        const goat = 'G';
+        const lion = 'L';
+        const start = 'start';
+        const end = 'end';
         const numGoat = Math.floor(Math.random() * (8 - 1 + 1) + 1);
         const numLion = Math.floor(Math.random() * (numGoat - 1 + 1) + 1); // lions must never start higher than goats
+
+        console.log(numGoat);
+        console.log(numLion);
+
+        for (let i = 0; i < numGoat; i++) {
+            const goatStartElement = createAnimalContainer(goat, i + 1, start);
+            startGrid.appendChild(goatStartElement);
+            const goatElement = createAnimals(goat, i + 1);
+            goatStartElement.appendChild(goatElement);
+
+            const goatEndElement = createAnimalContainer(goat, i + 1, end);
+            endGrid.appendChild(goatEndElement);
+        }
+
+        for (let i = 0; i < numLion; i++) {
+            const lionStartElement = createAnimalContainer(lion, i + 1, start);
+            startGrid.appendChild(lionStartElement);
+            const lionElement = createAnimals(lion, i + 1);
+            lionStartElement.appendChild(lionElement);
+
+            const lionEndElement = createAnimalContainer(lion, i + 1, end);
+            endGrid.appendChild(lionEndElement);
+        }
+    }
+
+    function createAnimalContainer(animal, index, pos) {
+        const animalContainerElement = document.createElement('div');
+        animalContainerElement.id = pos == 'start' ? animal + index + '-start' : animal + index + '-end';
+        return animalContainerElement;
+    }
+
+    function createAnimals(animal, index) {
+        const animalElement = document.createElement('div');
+        animalElement.className = animal;
+        animalElement.id = animal + index;
+        animalElement.innerHTML = animal == 'G' ? '&#x1F984' : '&#x1F981';
+        return animalElement;
     }
 });

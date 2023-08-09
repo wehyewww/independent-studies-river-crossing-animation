@@ -5,7 +5,7 @@ River Crossing Problem Simulation using Web Animations API
 1. Build grids in HTML page (Done!)
 2. Find out how to dynamically create animals (Done!)
 3. Create function to randomise animal count (Done!)
-4. Create function to dynamically create animals
+4. Create function to dynamically create animals (Done!)
 
 Will need to programtically assign animals and their start positions unique IDs
 
