@@ -2,16 +2,20 @@
 River Crossing Problem Simulation using Web Animations API
 
 # Weekly Tasks
-1. Change start and end positions to be generalised (animal1-start, animal2-start, animal1-end, animal2-end) (Done!)
-2. Think of how to move animals
+1. Add River Crossing Solver codes into application (Done!)
+2. Create function to get start animals and end positions, get element based of HTML ID, and call respective moves? (Done!)
+3. Consider how to handle situations where 1 animal moving vs 2 animal moving (Done!)
+4. Consider order of program (Done!)
+-> Click button, generate number of goats and lions
+-> Call solver and receive results
+-> Calculate Goat and Lion moved for first move, call function to get animal and position
+-> Call move functions (Will need to chain promises together? Finish 1 set of animation, do calculations, start next animation?)
 
-Create 2 arrays? For each side? (Done!)
+Better to have function to do 1 step at a time
 
-Loop through to see if there is a goat or lion occupying the space? (If want to find start animal to move) (Done!)
-If found animal, get position and move
-
-Loop through to find next empty space (If want to find end position for animal to move to) (Done!)
-If found empty space, get position and move
+-> Looking forward into playback, would be good to keep array of steps
+-> User can skip or reverse to previous step
+-> This way, program will always know what comes next
 
 Need to change IS1 codes? Return an array of the corresponding moves?
 OR, find out how to find the corresponding moves from the IS1 program results
