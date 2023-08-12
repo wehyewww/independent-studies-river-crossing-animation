@@ -11,6 +11,30 @@ body {
     left: 47.5%;
 }
 
+#btn-speed-up {
+    position: absolute;
+    top: 10%;
+    left: 57.5%;
+}
+
+#btn-slow-down {
+    position: absolute;
+    top: 10%;
+    left: 33.5%;
+}
+
+#btn-pause {
+    position: absolute;
+    top: 15%;
+    left: 37.5%;
+}
+
+#btn-resume {
+    position: absolute;
+    top: 15%;
+    left: 47.5%;
+}
+
 #section-left {
     width: 25%;
     background-color: #0B7229;
@@ -27,18 +51,11 @@ body {
     padding: 10px;
 }
 
-/* #left-grid > div {
-    background-color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    padding: 20px 0;
-    font-size: 30px;
-} */
-
 /* animal start position containers */
 #left-grid > div {
     height: 10vh;
     width: 10vh;
-    background-color: bisque;
+    /* background-color: bisque; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,7 +85,7 @@ body {
 #right-grid > div {
     height: 10vh;
     width: 10vh;
-    background-color: bisque;
+    /* background-color: bisque; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,7 +94,7 @@ body {
 #animal-start {
     height: 10vh;
     width: 10vh;
-    background-color: coral;
+    /* background-color: coral; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,7 +106,7 @@ body {
 #raft-start {
     height: 35vh;
     width: 25vh;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,7 +118,7 @@ body {
 #raft-end {
     height: 35vh;
     width: 25vh;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,7 +130,7 @@ body {
 #animal-end {
     height: 10vh;
     width: 10vh;
-    background-color: coral;
+    /* background-color: coral; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,7 +142,7 @@ body {
 #raft-start-top {
     height: 10vh;
     width: 10vh;
-    background-color: coral;
+    /* background-color: coral; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,7 +155,7 @@ body {
 #raft-start-bottom {
     height: 10vh;
     width: 10vh;
-    background-color: coral;
+    /* background-color: coral; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,7 +168,7 @@ body {
 #raft-end-top {
     height: 10vh;
     width: 10vh;
-    background-color: coral;
+    /* background-color: coral; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -164,7 +181,7 @@ body {
 #raft-end-bottom {
     height: 10vh;
     width: 10vh;
-    background-color: coral;
+    /* background-color: coral; */
     display: flex;
     justify-content: center;
     align-items: center;
