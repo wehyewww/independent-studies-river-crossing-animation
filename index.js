@@ -11,13 +11,16 @@ window.addEventListener('DOMContentLoaded', () => {
     const raftStartBottom = document.querySelector('#raft-start-bottom');
     const raftEndTop = document.querySelector('#raft-end-top');
     const raftEndBottom = document.querySelector('#raft-end-bottom');
+    const startGrid = document.querySelector('#left-grid');
+    const endGrid = document.querySelector('#right-grid');
+    const bottomBar = document.querySelector('#bottom-bar');
+
     const btnStart = document.querySelector('#btn-start');
     const btnSpeedUp = document.querySelector('#btn-speed-up');
     const btnSlowDown = document.querySelector('#btn-slow-down');
     const btnPause = document.querySelector('#btn-pause');
     const btnResume = document.querySelector('#btn-resume');
-    const startGrid = document.querySelector('#left-grid');
-    const endGrid = document.querySelector('#right-grid');
+    const btnGenerate = document.querySelector('#btn-generate-animals');
 
     const leftBank = [];
     const rightBank = [];
@@ -32,15 +35,20 @@ window.addEventListener('DOMContentLoaded', () => {
     // https://developer.mozilla.org/en-US/docs/Web/API/DOMRect
     // Gabriel Paul Tan
 
+    btnGenerate.onclick = function () {
+        generateAnimals();
+        createElements(numGoat, numLion);
+    }
+
     btnStart.onclick = function () {
-        const animals = generateAnimals();
-        const states = getSolution(animals.goat, animals.lion);
-        createElements(animals.goat, animals.lion);
+        const states = getSolution(numGoat, numLion);
 
         if (states != null) {
+            bottomBar.style.display = 'flex';
             runAllStages(states);
         } else {
-            console.log('No solution found!')
+            document.getElementById("message-content").innerHTML = 'No Solution Found!';
+            $('#myModal').modal('show');
         }
     }
 
@@ -54,10 +62,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
     btnPause.onclick = function () {
         pauseAnimation();
+        btnPause.style.display = 'none';
+        btnResume.style.display = 'block';
     }
 
     btnResume.onclick = function () {
         resumeAnimation();
+        btnResume.style.display = 'none';
+        btnPause.style.display = 'block';
     }
 
     // translate happens from the original position
@@ -128,8 +140,6 @@ window.addEventListener('DOMContentLoaded', () => {
     function generateAnimals() {
         numGoat = Math.floor(Math.random() * (8 - 1 + 1) + 1);
         numLion = Math.floor(Math.random() * (numGoat - 1 + 1) + 1); // lions must never start higher than goats
-
-        return { goat: numGoat, lion: numLion }
     }
 
     // generate HTML elements for animals and their containers
@@ -357,7 +367,8 @@ window.addEventListener('DOMContentLoaded', () => {
             await runStage(animal.goat, animal.lion, animal.raft);
         }
 
-        console.log('Done!')
+        document.getElementById("message-content").innerHTML = 'Problem Solved!';
+        $('#myModal').modal('show');
     }
 
     // gets the moves needed between 2 stages
