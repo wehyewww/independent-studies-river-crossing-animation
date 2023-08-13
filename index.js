@@ -21,6 +21,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const btnPause = document.querySelector('#btn-pause');
     const btnResume = document.querySelector('#btn-resume');
     const btnGenerate = document.querySelector('#btn-generate-animals');
+    const btnSkipStage = document.querySelector('#btn-skip-stage');
+    const btnRewindStage = document.querySelector('#btn-rewind-stage');
 
     const leftBank = [];
     const rightBank = [];
@@ -36,6 +38,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // Gabriel Paul Tan
 
     btnGenerate.onclick = function () {
+        clearElements();
         generateAnimals();
         createElements(numGoat, numLion);
     }
@@ -72,8 +75,17 @@ window.addEventListener('DOMContentLoaded', () => {
         btnPause.style.display = 'block';
     }
 
+    // btnSkipStage.onclick = function () {
+    //     skipFlag = true;
+    //     ongoingAnimations.forEach(animation => {
+    //         if (animation.playState == 'running') {
+    //             animation.cancel();
+    //         }
+    //     })
+    // }
+
     // translate happens from the original position
-    function move(startElement, endElement, time, rate) {
+    function move(startElement, endElement, time) {
 
         // get start and end coordinates
         const startPos = getPosition(startElement);
@@ -203,7 +215,6 @@ window.addEventListener('DOMContentLoaded', () => {
         if (bank == 'L') {
             for (let i = 0; i < leftBank.length; i++) {
                 if (leftBank[i] != null && leftBank[i].charAt(0) == animal) {
-                    console.log('Found animal for leftBank at index: ' + i)
                     animalID = leftBank[i];
                     leftBank[i] = null; // empty the value
                     return animalID; // return index of selected animal
@@ -212,7 +223,6 @@ window.addEventListener('DOMContentLoaded', () => {
         } else if (bank == 'R') {
             for (let i = 0; i < rightBank.length; i++) {
                 if (rightBank[i] != null && rightBank[i].charAt(0) == animal) {
-                    console.log('Found animal for rightBank at index: ' + i)
                     animalID = rightBank[i];
                     rightBank[i] = null; // empty the value
                     return animalID;
@@ -360,10 +370,9 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     async function runAllStages(stages) {
-        var animal;
-
         for (let i = 0; i < stages.length - 1; i++) {
-            animal = getSteps(stages[i], stages[i + 1]);
+            const animal = getSteps(stages[i], stages[i + 1]);
+
             await runStage(animal.goat, animal.lion, animal.raft);
         }
 
@@ -413,5 +422,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 animation.play()
             }
         })
+    }
+
+    function clearElements() {
+        // remove all child elements - animal container and animals
+        startGrid.replaceChildren();
+        endGrid.replaceChildren();
     }
 });
