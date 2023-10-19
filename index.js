@@ -45,6 +45,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     btnStart.onclick = function () {
         const states = getSolution(numGoat, numLion);
+        console.log(states);
 
         if (states != null) {
             bottomBar.style.display = 'flex';
